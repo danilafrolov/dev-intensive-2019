@@ -32,11 +32,11 @@ fun Date.humanizeDiff(date: Date = Date()): String {
     val diff = date.time - this.time
     return when {
         diff < -360 * DAY -> "более чем через год"
-        diff in -360 * DAY until -26 * HOUR -> "через ${diff / -DAY} дней"
+        diff in -360 * DAY until -26 * HOUR -> "через ${TimeUnits.DAY.plural((diff / -DAY).toInt())}"
         diff in -26 * HOUR until -22 * HOUR - 1 -> "через день"
-        diff in -22 * HOUR until -75 * MINUTE - 1 -> "через ${diff / -HOUR} часов"
+        diff in -22 * HOUR until -75 * MINUTE - 1 -> "через ${TimeUnits.HOUR.plural((diff / -HOUR).toInt())}"
         diff in -75 * MINUTE until -45 * MINUTE - 1 -> "через час"
-        diff in -45 * MINUTE until -75 * SECOND - 1 -> "через ${diff / -MINUTE} минут"
+        diff in -45 * MINUTE until -75 * SECOND - 1 -> "через ${TimeUnits.MINUTE.plural((diff / -MINUTE).toInt())}"
         diff in -75 * SECOND until -45 * SECOND - 1 -> "через минуту"
         diff in -45 * SECOND until -SECOND - 1 -> "через несколько секунд"
         diff in -SECOND until SECOND - 1 -> "только что"

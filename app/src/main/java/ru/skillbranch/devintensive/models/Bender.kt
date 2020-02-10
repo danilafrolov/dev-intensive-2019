@@ -2,7 +2,7 @@ package ru.skillbranch.devintensive.models
 
 import androidx.core.text.isDigitsOnly
 
-class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
+class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME, var attempts: Int = 0) {
 
     fun askQuestion(): String = when (question) {
         Question.NAME -> Question.NAME.question
@@ -21,10 +21,18 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         }
         return if (question.answers.contains(answer?.toLowerCase())) {
             question = question.nextQuestion()
-            "Отлично, это правильный ответ!\n${question.question}" to status.color
-        } else {
-            status = status.next_status()
+            attempts = 0
+            "Отлично - ты справился\n${question.question}" to status.color
+        } else if (attempts < 3) {
+            attempts++
+            status = status.nextStatus()
             "Это неправильный ответ!\n${question.question}" to status.color
+        }
+        else {
+            attempts = 0
+            status = Status.NORMAL
+            question = Question.NAME
+            "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
         }
     }
 
@@ -46,7 +54,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         DANGER(Triple(255, 60, 60)),
         CRITICAL(Triple(255, 255, 0));
 
-        fun next_status(): Status {
+        fun nextStatus(): Status {
             return if (this.ordinal < values().lastIndex) {
                 values()[this.ordinal + 1]
             } else {

@@ -26,7 +26,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         } else if (attempts < 3) {
             attempts++
             status = status.nextStatus()
-            "Это неправильный ответ!\n${question.question}" to status.color
+            "Это неправильный ответ\n${question.question}" to status.color
         }
         else {
             attempts = 0
@@ -43,7 +43,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             Question.PROFESSION -> if (!answer[0]?.isLowerCase()) "Профессия должна начинаться со строчной буквы\n" else ""
             Question.MATERIAL -> if (answer.matches(".*\\d.*".toRegex())) "Материал не должен содержать цифр\n" else ""
             Question.BDAY -> if (!answer.isDigitsOnly()) "Год моего рождения должен содержать только цифры\n" else ""
-            Question.SERIAL -> if (!answer.isDigitsOnly() && answer.length != 7) "Серийный номер содержит только цифры, и их 7\n" else ""
+            Question.SERIAL -> if (!answer.isDigitsOnly() || answer.length != 7) "Серийный номер содержит только цифры, и их 7\n" else ""
             Question.IDLE -> ""
         }
     }

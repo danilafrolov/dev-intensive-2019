@@ -19,20 +19,23 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             return "$validationResult" +
                     "${question.question}" to status.color
         }
-        return if (question.answers.contains(answer?.toLowerCase())) {
-            question = question.nextQuestion()
-            attempts = 0
-            "Отлично - ты справился\n${question.question}" to status.color
-        } else if (attempts < 3) {
-            attempts++
-            status = status.nextStatus()
-            "Это неправильный ответ\n${question.question}" to status.color
-        }
-        else {
-            attempts = 0
-            status = Status.NORMAL
-            question = Question.NAME
-            "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
+        return when {
+            question.answers.contains(answer?.toLowerCase()) -> {
+                question = question.nextQuestion()
+                attempts = 0
+                "Отлично - ты справился\n${question.question}" to status.color
+            }
+            attempts < 3 -> {
+                attempts++
+                status = status.nextStatus()
+                "Это неправильный ответ\n${question.question}" to status.color
+            }
+            else -> {
+                attempts = 0
+                status = Status.NORMAL
+                question = Question.NAME
+                "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
+            }
         }
     }
 

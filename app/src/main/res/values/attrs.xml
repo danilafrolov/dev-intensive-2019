@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AspectRatioImageView">
+        <attr name="aspectRatio" format="float"></attr>
+    </declare-styleable>
+    
+    <attr name="colorAccentedSurface" format="reference"></attr>
+    <attr name="colorDivider" format="reference"></attr>
+    <attr name="colorIcon" format="reference"></attr>
+
+</resources>

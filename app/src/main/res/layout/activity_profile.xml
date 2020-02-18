@@ -34,12 +34,12 @@
                 android:background="@drawable/btn_round_bg"
                 android:src="@drawable/ic_switch_day_night" />
 
-            <ImageView
+            <ru.skillbranch.devintensive.ui.custom.CircleImageView
                 android:id="@+id/iv_avatar"
+                android:src="@drawable/profile_bg"
                 android:layout_width="@dimen/avatar_round_size"
                 android:layout_height="@dimen/avatar_round_size"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/avatar_default" />
+                android:layout_centerHorizontal="true" />
 
             <ImageButton
                 android:id="@+id/btn_edit"
@@ -52,8 +52,8 @@
                 android:src="@drawable/ic_edit_black_24dp" />
 
             <TextView
-                style="@style/Profile.Header.NickName"
                 android:id="@+id/tv_nick_name"
+                style="@style/Profile.Header.NickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_avatar"
@@ -61,13 +61,13 @@
                 android:text="John Doe" />
 
             <TextView
-                style="@style/Profile.Header.Rank"
                 android:id="@+id/tv_rank"
+                style="@style/Profile.Header.Rank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_nick_name"
                 android:layout_centerHorizontal="true"
-                android:text="Junior Android Developer"/>
+                android:text="Junior Android Developer" />
         </RelativeLayout>
     </FrameLayout>
 
@@ -100,7 +100,7 @@
                 style="@style/Profile.Metrics.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/profile_label_rating"/>
+                android:text="@string/profile_label_rating" />
         </LinearLayout>
 
         <View
@@ -132,7 +132,7 @@
                 style="@style/Profile.Metrics.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/profile_label_respect"/>
+                android:text="@string/profile_label_respect" />
         </LinearLayout>
     </LinearLayout>
 
@@ -155,14 +155,14 @@
             android:layout_toRightOf="@+id/ic_avatar">
 
             <EditText
-                style="@style/Profile.EditText.Single"
                 android:id="@+id/et_first_name"
+                style="@style/Profile.EditText.Single"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/profile_hint_first_name"
-                tools:text="John"
+                android:imeOptions="actionNext"
                 android:inputType="textPersonName"
-                android:imeOptions="actionNext"/>
+                tools:text="John" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,14 +175,14 @@
             android:layout_toRightOf="@+id/ic_avatar">
 
             <EditText
-                style="@style/Profile.EditText.Single"
                 android:id="@+id/et_last_name"
+                style="@style/Profile.EditText.Single"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/profile_hint_last_name"
-                tools:text="Doe"
+                android:imeOptions="actionNext"
                 android:inputType="textPersonName"
-                android:imeOptions="actionNext"/>
+                tools:text="Doe" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,12 +215,12 @@
             app:counterMaxLength="128">
 
             <EditText
-                style="@style/Profile.EditText.MultiLine"
                 android:id="@+id/et_about"
+                style="@style/Profile.EditText.MultiLine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/profile_hint_about"
-                android:inputType="textMultiLine"/>
+                android:inputType="textMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -253,13 +253,13 @@
             android:layout_weight="1">
 
             <EditText
-                style="@style/Profile.EditText.Single"
                 android:id="@+id/et_repository"
+                style="@style/Profile.EditText.Single"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/profile_hint_repository"
-                android:inputType="textUri"
-                android:imeOptions="actionDone"/>
+                android:imeOptions="actionDone"
+                android:inputType="textUri" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -267,8 +267,8 @@
             android:id="@+id/ic_eye"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="@dimen/spacing_normal_16"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_normal_16"
             android:src="@drawable/ic_eye_24dp" />
 
     </LinearLayout>

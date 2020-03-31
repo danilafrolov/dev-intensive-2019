@@ -1,28 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
-    
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+    android:background="@color/cardview_dark_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity"
+    android:id="@+id/container">
+
+<!--    <ru.skillbranch.devintensive.ui.custom.AvatarImageViewMask-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:src="@drawable/ava_big">-->
+<!--    </ru.skillbranch.devintensive.ui.custom.AvatarImageViewMask>-->
+
+<!--    <ru.skillbranch.devintensive.ui.custom.AvatarImageViewShader-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:src="@drawable/ava_big">-->
+<!--    </ru.skillbranch.devintensive.ui.custom.AvatarImageViewShader>-->
+
+    <ru.skillbranch.devintensive.ui.custom.AvatarImageView
+        android:id="@+id/aiv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ava_big"
+        app:aiv_initials="FD">
+        
+    </ru.skillbranch.devintensive.ui.custom.AvatarImageView>
+
+    <Button
+        android:id="@+id/btn_color"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_chat_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:text="COLOR" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <Button
+        android:id="@+id/btn_border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BORDER" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>
